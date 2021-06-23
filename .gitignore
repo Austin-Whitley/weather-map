@@ -1,0 +1,5 @@
+.idea/*
+*.iml
+.DS_STORE
+confessions.txt
+keys.js
