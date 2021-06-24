@@ -1,5 +1,6 @@
 //create map
 mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
+
 var map = new mapboxgl.Map({
     container: 'map', // container ID
     style: 'mapbox://styles/mapbox/streets-v11', // style URL
@@ -40,6 +41,14 @@ $("#search").click(function(){
     console.log(userInput);
     moveMarkerToInput()
 })
+
+$('#user-input').keypress(function(event){
+    var keycode = (event.keyCode ? event.keyCode : event.which);
+    if(keycode == '13'){
+        userInput = $("#user-input").val();
+        moveMarkerToInput()
+    }
+});
 
 $("#mapStyle").change(function(){
     map.setStyle($("#mapStyle").val())
@@ -111,6 +120,7 @@ write();
 
 //click to enable/disable cards
 $("#toggleCards").click(toggle);
+
 
 //===============Extra Functions=============//
 
